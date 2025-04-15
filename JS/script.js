@@ -105,7 +105,7 @@ window.toggle = function() {
     input.style.display = input.style.display === "none" ? "block" : "none"
     div.style.display = div.style.display === "flex" ? "none" : "flex"
 };
-toggle()
+// toggle()
 
 // Yuxarı qayıt düyməsinin funksionallığı
 window.onscroll = function() {scrollFunction()};
