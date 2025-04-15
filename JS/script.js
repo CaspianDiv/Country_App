@@ -13,7 +13,12 @@ const randCard = document.querySelector("#randCard");
 
 let data
 
+let count = 20
 
+window.showMore = function(){
+    count += 20
+    printMainData()
+};
 
 function printRandData(){
 const randomIndex = Math.floor(Math.random() * data.length);
@@ -46,8 +51,10 @@ const randomIndex = Math.floor(Math.random() * data.length);
 const countryCards = document.getElementById("countryCards");
 
 
-function printMainData() {
-    data.forEach(item => {
+window.printMainData = function() {
+    data
+        .slice(0, count)
+        .forEach(item => {
         countryCards.innerHTML += `
          <div class="max-w-xs p-6 cursor-pointer rounded-md shadow dark:bg-gray-50 dark:text-gray-900">
             <img src="${item.flag}" alt="" class="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500">
@@ -66,7 +73,7 @@ function printMainData() {
 const searchInp = document.getElementById("searchInp");
 
 searchInp.addEventListener("input" ,search)
-function search(){
+window.search = function(){
     let card = "";
     data.filter(item => item.name.toLowerCase().includes(searchInp.value.toLowerCase()))
     .map(item => card += `
@@ -81,6 +88,50 @@ function search(){
         `
     )
     countryCards.innerHTML = card
+};
+
+
+
+
+
+
+
+
+window.toggle = function() {
+    const input = document.getElementById("searchInp");
+    const div = document.getElementById("randCard");
+    const headSec = document.getElementById("headSec");
+    headSec.style.height = headSec.style.height === "110vh" ? "50vh" : "110vh"
+    input.style.display = input.style.display === "none" ? "block" : "none"
+    div.style.display = div.style.display === "flex" ? "none" : "flex"
+};
+toggle()
+
+// Yuxarı qayıt düyməsinin funksionallığı
+window.onscroll = function() {scrollFunction()};
+
+window.scrollFunction = function() {
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    backToTopBtn.classList.remove("hidden");
+  } else {
+    backToTopBtn.classList.add("hidden");
+  }
+}
+
+
+document.getElementById("backToTopBtn").addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+
+
+window.goHome = function(){
+  window.location.href = 'index.htm'
 };
 
 
