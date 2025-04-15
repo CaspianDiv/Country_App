@@ -73,7 +73,7 @@ window.printMainData = function() {
 const searchInp = document.getElementById("searchInp");
 
 searchInp.addEventListener("input" ,search)
-search = function(){
+function search(){
     let card = "";
     data.filter(item => item.name.toLowerCase().includes(searchInp.value.toLowerCase()))
     .map(item => card += `
