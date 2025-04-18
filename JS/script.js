@@ -130,8 +130,6 @@ document.getElementById("backToTopBtn").addEventListener("click", function() {
 
 
 
-window.goHome = function(){
-  window.location.href = 'index.htm'
-};
+
 
 
