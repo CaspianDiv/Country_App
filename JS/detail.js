@@ -21,3 +21,8 @@ fetch("https://raw.githubusercontent.com/TheOksigen/purfect_data/main/country.js
       console.log("Ölkə tapılmadı");
     }
   });
+
+
+function goHome(){
+  window.location.href = '/index.htm'
+};
